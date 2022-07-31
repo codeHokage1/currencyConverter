@@ -150,6 +150,19 @@ input:focus {
   border-bottom: 2px solid #395875;
 }
 
+/* Remove default increment & decrement from number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 select {
   border: none;
   font-weight: 700;
@@ -175,7 +188,7 @@ select:focus {
   }
 
   header div {
-    margin: 40px auto;
+    margin: 20px auto 40px auto;
   }
 
   .converter-main {
@@ -183,7 +196,7 @@ select:focus {
   }
 
   .converter-main .switch {
-    padding: 20px auto;
+    margin: 20px auto;
   }
 
 
