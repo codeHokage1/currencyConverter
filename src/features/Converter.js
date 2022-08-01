@@ -14,6 +14,7 @@ const Converter = (props) => {
           <h3>All-In-One Currency Converter</h3>
 
           <section className="card converter-main">
+            <div className="converter-left">
             <ConverterLeft 
                     currencies={props.currencies}
                     amount={props.amount1}
@@ -27,6 +28,7 @@ const Converter = (props) => {
                 <small>=</small>
                 <small>{(props.rates[props.currency2] / props.rates[props.currency1]).toFixed(3)} {props.currency2}</small>
             </div>
+            </div>
             
 
             <div className="switch">
@@ -34,7 +36,8 @@ const Converter = (props) => {
             </div>
             
             
-            <ConverterRight
+           <div className="converter-right">
+           <ConverterRight
                 currencies={props.currencies}
                 amount={props.amount2}
                 currency={props.currency2}
@@ -47,6 +50,7 @@ const Converter = (props) => {
                 <small>=</small>
                 <small>{(props.rates[props.currency1] / props.rates[props.currency2]).toFixed(3)} {props.currency1}</small>
             </div>
+           </div>
                         
           </section>
         </section>

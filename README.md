@@ -1,6 +1,7 @@
 # Currency Converter by Group(/Table) 1
 
 This project is a currency converter that uses the most recent currency exchange rates provided by 15+ sources.
+* Link to deployed project: https://currencyconverter-sand.vercel.app/
 
 ## Features
 * Automatically shows the base rate for selected currencies
