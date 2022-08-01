@@ -1,86 +1,71 @@
-import React from 'react'
-import Header from '../components/Header'
-// Flag Icons
-import { FlagIcon } from "react-flag-kit";
-import CountryData from '../components/CountryData';
-
-const Converter = () => {
+import React from "react";
+import Header from "../components/Header";
+import PropTypes from "prop-types";
+import ConverterLeft from "../components/ConverterLeft";
+import ConverterRight from "../components/ConverterRight";
 
 
-    return (
+const Converter = (props) => {
+  return (
+    <div>
+      <Header />
+      <div className="container converter-wrapper">
+        <section>
+          <h3>All-In-One Currency Converter</h3>
 
-        <div>
-            <Header />
-            <div className='container converter-wrapper'>
-
-                <section>
-                    <h3>All-In-One Currency Converter</h3>
-
-                    <section className='card converter-main'>
-                        <div className='converter-left'>
-                            <div className='top-left'>
-                                <small>You Have</small>
-                                {/* Dynamically pass in the country name here */}
-                                <small className='country'>Nigeria</small>
-                            </div>
-                            <div className='body-left'>
-                                <div className='input-group'>
-                                    <input type='number' />
-
-                                    <select id='country'>
-                                        <option value='NG'>NG</option>
-                                        <option value='US'>US</option>
-                                        <option value=''></option>
-                                    </select>
-                                    {/* Pass a prop here code={country-code} to change flag dynamically */}
-                                    <FlagIcon className='flag' code="NG" width={18} height={15} />
-                                </div>
-                            </div>
-
-                            <div className='bottom-left'>
-                                <small>1USD</small>
-                                <small>=</small>
-                                <small>750.00</small>
-                            </div>
-                        </div>
-
-                        <div className='switch'>
-                            <i className="fa-solid fa-arrow-right-arrow-left"></i>
-                        </div>
-
-                        <div className='converter-right'>
-                            <div className='top-right'>
-                                <small>You Get</small>
-                                {/* Dynamically pass in the country name here */}
-                                <small className='country'>United States</small>
-                            </div>
-                            <div className='body-right'>
-                                <div className='input-group'>
-                                    <input type='number' />
-                                    <select id='country'>
-                                        <option value='US'>US</option>
-                                        <option value='NGN'>NG</option>
-                                        <option value=''></option>
-                                    </select>
-                                    {/* Pass a prop here code={country-code} to change flag dynamically */}
-                                    <FlagIcon className='flag' code="US" width={18} height={15} />
-                                </div>
-                            </div>
-
-                            <div className='bottom-right'>
-                                <small>1NGN</small>
-                                <small>=</small>
-                                <small>0.00133333USD</small>
-                            </div>
-                        </div>
-
-                    </section>
-                </section>
-
-
+          <section className="card converter-main">
+            <ConverterLeft 
+                    currencies={props.currencies}
+                    amount={props.amount1}
+                    currency={props.currency1}
+                    onAmountChange={props.onAmountChange1}
+                    onCurrencyChange={props.onCurrencyChange1}
+            />
+            
+            <div className='bottom-left'>
+                <small>1 {props.currency1}</small>
+                <small>=</small>
+                <small>{(props.rates[props.currency2] / props.rates[props.currency1]).toFixed(3)} {props.currency2}</small>
             </div>
-        </div>
-    )
-}
+            
 
-export default Converter
+            <div className="switch">
+              <i className="fa-solid fa-arrow-right-arrow-left"></i>
+            </div>
+            
+            
+            <ConverterRight
+                currencies={props.currencies}
+                amount={props.amount2}
+                currency={props.currency2}
+                onAmountChange={props.onAmountChange2}
+                onCurrencyChange={props.onCurrencyChange2}
+            />
+            
+            <div className='bottom-right'>
+                <small>1 {props.currency2}</small>
+                <small>=</small>
+                <small>{(props.rates[props.currency1] / props.rates[props.currency2]).toFixed(3)} {props.currency1}</small>
+            </div>
+                        
+          </section>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+Converter.propTypes = {
+    amount: PropTypes.number.isRequired,
+    currency: PropTypes.string.isRequired,
+    currencies: PropTypes.array,
+    onAmountChange: PropTypes.func,
+    onCurrencyChange: PropTypes.func
+  }
+  
+
+export default Converter;
+
+
+
+
