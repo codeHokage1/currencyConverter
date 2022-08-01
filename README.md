@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# Currency Converter by Group(/Table) 1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a currency converter that uses the most recent currency exchange rates provided by 15+ sources.
+
+## Features
+* Automatically shows the base rate for selected currencies
+* Provide country full name for selected currencies
+* Provide country flags for selected countries
+* Accurately convert the currencies from one to another
+
+## Developers
+This project was developed by the members of Group(/Table) 1 of the React class of the PWC x Xerde Tech Bootcamp.
+The team consisted of:
+* [Onagho Okiroro](https://github.com/Anagho)
+* [Ugochukwu Chidu](https://github.com/Chidu97)
+* [Abdulqadir Kamaldeen](https://github.com/Lamarthefourth)
+* [Ohia Jane Chidera](https://github.com/OhiaJanny)
+* [Sodiq Farihan](https://github.com/codeHokage1)
+
+## Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 ## Available Scripts
 
